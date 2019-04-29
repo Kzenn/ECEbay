@@ -9,6 +9,7 @@ CREATE TABLE `Acheteur` (
 	`NCarte` INT(16) NOT NULL,
 	`Expiration` DATE NOT NULL,
 	`Admin` BINARY,
+	`MDP` varchar(50) NOT NULL,
 	PRIMARY KEY (`ID_User`)
 );
 
@@ -18,6 +19,7 @@ CREATE TABLE `Produit` (
 	`Nom` VARCHAR(20) NOT NULL,
 	`Prix` FLOAT NOT NULL,
 	`Description` VARCHAR(256) NOT NULL,
+	`Stock` INT(64) NOT NULL,
 	PRIMARY KEY (`ID_Produit`)
 );
 
@@ -66,6 +68,7 @@ CREATE TABLE `Vendeur` (
 	`Mail` VARCHAR(128) NOT NULL,
 	`Photo_Adresse` VARCHAR(128) NOT NULL,
 	`Fond_Adresse` VARCHAR(128) NOT NULL,
+	`Solde` INT(64) NOT NULL,
 	PRIMARY KEY (`ID_Vendeur`)
 );
 
