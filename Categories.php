@@ -14,11 +14,11 @@
 						<img src="Images/menu.jpg">
 						<ul class="l2">
 							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
-							<li><a href="VentesFlash.html" title="Accéder aux ventes flash">Ventes flash</a></li>
-							<li><a href="Vendre.html" title="Accéder à la vente">Vendre</a></li>
-							<li><a href="Compte.html" title="Accéder à votre compte">Votre compte</a></li>
-							<li><a href="Panier.html" title="Accéder au panier">Panier</a></li>
-							<li><a href="Admin.html" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="Vendre.php" title="Accéder à la vente">Vendre</a></li>
+							<li><a href="Compte.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="Admin.php" title="Espace réservé aux admins">Admin</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -32,22 +32,22 @@
 		</header>
 
 		<div id="corps">
-			<a href="SsCategories/Livres.html" id="livres">
+			<a href="SsCategories/Livres.php" id="livres">
 				<section>
 					<p class="boutton">Livres</p>
 				</section>
 			</a>
-			<a href="SsCategories/Musique.html" id="musique">
+			<a href="SsCategories/Musique.php" id="musique">
 				<section>
 					<p class="boutton">Musique</p>
 				</section>
 			</a>
-			<a href="SsCategories/Vetements.html" id="vetements">
+			<a href="SsCategories/Vetements.php" id="vetements">
 				<section>
 					<p class="boutton">Vêtements</p>
 				</section>
 			</a>
-			<a href="SsCategories/Loisir.html" id="loisir">
+			<a href="SsCategories/Loisir.php" id="loisir">
 				<section>
 					<p class="boutton">Sports et loisir</p>
 				</section>
