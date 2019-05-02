@@ -6,7 +6,7 @@
 	</head>
 <body>
 	<h2>Connexion à votre compte Acheteur</h2>
-		<form action="http://localhost/ECEbay/Connexion/Acheteur.php" method="post">
+		<form action="http://localhost/ECEbay/Connexion/AcheteurB.php" method="post">
 			<table>
 			<tr>
 				<td>ID:</td>
