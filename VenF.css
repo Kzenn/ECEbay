@@ -1,12 +1,12 @@
 .grparticles{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 10px;
 }
 
 article{
-    height: 300px;
-    width: 450px;
+    text-align: center;
     border: 1px solid black;
     margin: 5px;
     border-radius: 5px;

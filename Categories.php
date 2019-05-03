@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +20,7 @@
 							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
 							<li><a href="VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
 							<li><a href="http://localhost/ECEbay/Vente.php" title="Accéder à la vente">Vendre</a></li>
-							<li><a href="http://localhost/ECEbay/Vente.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="Admin.php" title="Espace réservé aux admins">Admin</a></li>
 						</ul>
@@ -27,7 +31,7 @@
 				<h1>ECEbay</h1>
 			</div>
 			<div id="connexion">
-				<a href="#" title="Compte" id="connex"><img src="Images/login.jpg"></a>
+				<a href="http://localhost/ECEbay/Compte.php" title="Compte" id="connex"><img src="Images/login.jpg"></a>
 			</div>
 		</header>
 
@@ -42,7 +46,7 @@
 					<p class="boutton">Musique</p>
 				</section>
 			</a>
-			<a href="http://localhost/ECEbay/Categories/Vetements.php" id="vetements">
+			<a href="http://localhost/ECEbay/Categories/Vetement.php" id="vetements">
 				<section>
 					<p class="boutton">Vêtements</p>
 				</section>

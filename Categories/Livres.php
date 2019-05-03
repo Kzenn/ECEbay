@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 
 $database = "ecebay";
 

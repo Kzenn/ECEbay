@@ -1,5 +1,4 @@
 <?php
-// On démarre la session AVANT d'écrire du code HTML
 session_start();
 
 $database = "ecebay";
@@ -33,6 +32,10 @@ mysqli_close($db_handle);
         <title>Compte</title>
     </head>
     <body>
+    <p>
+        <a href="http://localhost/ECEbay/Connexion.php">Connexion</a><br />
+
+    </p>
     <p>
         <a href="http://localhost/ECEbay/Deconnexion.php">Deconnexion</a><br />
 
