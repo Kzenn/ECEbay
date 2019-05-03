@@ -1,13 +1,12 @@
 #corps{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 300px);
-    grid-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 article{
     text-align: center;
     border: 1px solid black;
-    margin: 5px;
+    margin: 10px;
     border-radius: 5px;
     font-size: 1.2em;
     background-color: white;
