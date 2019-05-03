@@ -34,27 +34,83 @@
 		<div id="corps">
 			<div class="titre">Meilleurs ventes de livres :</div>
 			<section class="grparticles">
-				<article>Article 1</article>
-				<article>Article 2</article>
-				<article>Article 3</article>
+				<?php
+					for($iL = 1; $iL <= $NbArticles; $iL++)
+					{
+				?>
+				<article>
+					<?php
+						echo 'Article '.$iL;
+						//echo $ID['1'].'</br>';
+						//echo "</br> Nom: ".$Nom[$i].'</br>';
+						//echo "Prix: ".$Prix[$i].'</br>';
+						//echo $Description['1'].'</br>';
+						//echo "Stock: ".$Stock[$i].'</br>';				
+					?>
+				</article>
+				<?php
+					}
+				?>
 			</section>
 			<div class="titre">Meilleurs ventes de musique :</div>
 			<section class="grparticles">
-				<article>Article 1</article>
-				<article>Article 2</article>
-				<article>Article 3</article>
+			<?php
+					for($iM = 1; $iM <= $NbArticles; $iM++)
+					{
+				?>
+				<article>
+					<?php
+						echo 'Article '.$iM;
+						//echo $ID['1'].'</br>';
+						//echo "</br> Nom: ".$Nom[$i].'</br>';
+						//echo "Prix: ".$Prix[$i].'</br>';
+						//echo $Description['1'].'</br>';
+						//echo "Stock: ".$Stock[$i].'</br>';				
+					?>
+				</article>
+				<?php
+					}
+				?>
 			</section>
 			<div class="titre">Meilleurs ventes de vêtements :</div>
 			<section class="grparticles">
-				<article>Article 1</article>
-				<article>Article 2</article>
-				<article>Article 3</article>
+			<?php
+					for($iV = 1; $iV <= $NbArticles; $iV++)
+					{
+				?>
+				<article>
+					<?php
+						echo 'Article '.$iV;
+						//echo $ID['1'].'</br>';
+						//echo "</br> Nom: ".$Nom[$i].'</br>';
+						//echo "Prix: ".$Prix[$i].'</br>';
+						//echo $Description['1'].'</br>';
+						//echo "Stock: ".$Stock[$i].'</br>';				
+					?>
+				</article>
+				<?php
+					}
+				?>
 			</section>
 			<div class="titre">Meilleurs ventes de sports et loisir :</div>
 			<section class="grparticles">
-				<article>Article 1</article>
-				<article>Article 2</article>
-				<article>Article 3</article>
+			<?php
+					for($iS = 1; $iS <= $NbArticles; $iS++)
+					{
+				?>
+				<article>
+					<?php
+						echo 'Article '.$iS;
+						//echo $ID['1'].'</br>';
+						//echo "</br> Nom: ".$Nom[$i].'</br>';
+						//echo "Prix: ".$Prix[$i].'</br>';
+						//echo $Description['1'].'</br>';
+						//echo "Stock: ".$Stock[$i].'</br>';				
+					?>
+				</article>
+				<?php
+					}
+				?>
 			</section>
 		</div>
 		
