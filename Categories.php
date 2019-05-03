@@ -32,22 +32,22 @@
 		</header>
 
 		<div id="corps">
-			<a href="SsCategories/Livres.php" id="livres">
+			<a href="http://localhost/ECEbay/Categories/Livres.php" id="livres">
 				<section>
 					<p class="boutton">Livres</p>
 				</section>
 			</a>
-			<a href="SsCategories/Musique.php" id="musique">
+			<a href="http://localhost/ECEbay/Categories/Musique.php" id="musique">
 				<section>
 					<p class="boutton">Musique</p>
 				</section>
 			</a>
-			<a href="SsCategories/Vetements.php" id="vetements">
+			<a href="http://localhost/ECEbay/Categories/Vetements.php" id="vetements">
 				<section>
 					<p class="boutton">Vêtements</p>
 				</section>
 			</a>
-			<a href="SsCategories/Loisir.php" id="loisir">
+			<a href="http://localhost/ECEbay/Categories/Equipement.php" id="loisir">
 				<section>
 					<p class="boutton">Sports et loisir</p>
 				</section>
