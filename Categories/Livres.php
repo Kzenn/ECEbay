@@ -7,7 +7,7 @@ $database = "ecebay";
 
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
-$i=0;
+$j=0;
 	
 //si le BDD existe, faire le traitement. Trouver les ID des livres
 if($db_found) 
@@ -21,34 +21,23 @@ if($db_found)
 		while($data2 = mysqli_fetch_assoc($resultBIS)) 
 		{
 
-			$i=$i+1;
+			$j=$j+1;
 
 			//on recupère dans des tableaux
-			$ID[$i] = $data2['ID_Produit'];
-			$Nom[$i] = $data2['Nom'];
-			$Prix[$i] = $data2['Prix'].'</br>';
-			$Description[$i] = $data2['Description'];
-			$Stock[$i] = $data2['Stock'];
+			$ID[$j] = $data2['ID_Produit'];
+			$Nom[$j] = $data2['Nom'];
+			$Prix[$j] = $data2['Prix'].'</br>';
+			$Description[$j] = $data2['Description'];
+			$Stock[$j] = $data2['Stock'];
 
-			$Auteur[$i] =$data['Auteur'].'</br>';
-			$Editeur[$i] =$data['Editeur'].'</br>';
-			$Date_Parution[$i] =$data['Date_Parution'].'</br>';
-			$Genre[$i] =$data['Genre'].'</br>';
+			$Auteur[$j] =$data['Auteur'].'</br>';
+			$Editeur[$j] =$data['Editeur'].'</br>';
+			$Date_Parution[$j] =$data['Date_Parution'].'</br>';
+			$Genre[$j] =$data['Genre'].'</br>';
 			
-			//informations provenant de la table produit
-			echo "ID produit:" .$data2['ID_Produit'].'</br>';
-			echo "Nom:" .$data2['Nom'].'</br>';
-			echo "Prix:" .$data2['Prix'].'</br>';
-			echo "Description:" .$data2['Description'].'</br>';
-			echo "Stock:" .$data2['Stock'].'</br>';
-
-			//informations provenant de la table livre
-			echo "Auteur: " .$data['Auteur'].'</br>';
-			echo "Editeur: " .$data['Editeur'].'</br>';
-			echo "Date_Parution: " .$data['Date_Parution'].'</br>';
-			echo "Genre: " .$data['Genre'].'</br>';
 		}//end while 
 		echo '</br>';
+		$NbArticles=$j;
 	}//end while 
 }//endif
 else{echo "ma base n'existe pas";}
@@ -56,3 +45,72 @@ else{echo "ma base n'existe pas";}
 
 
 ?>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../Style.css" />
+		<link rel="stylesheet" type="text/css" href="SsCat.css" />
+		<title>ECEbay</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<img src="../Images/menu.jpg">
+						<ul class="l2">
+							<li><a href="../Categories.php" title="Page principale">Catégories</a></li>
+							<li><a href="../VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="../Vendre.php" title="Accéder à la vente">Vendre</a></li>
+							<li><a href="../Compte.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="../Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="../Admin.php" title="Espace réservé aux admins">Admin</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div id="nom">
+				<h1>ECEbay</h1>
+			</div>
+			<div id="connexion">
+				<a href="#" title="Compte" id="connex"><img src="../Images/login.jpg"></a>
+			</div>
+		</header>
+		<?php
+			//$NbArticles = 15;
+		?>
+        <h2>Liste des livres :</h2>
+		<div id="corps">
+			<?php
+				for($i = 1; $i <= $NbArticles; $i++)
+				{
+			?>
+			<article><?php echo 'Article '.$i;
+			//echo $ID['1'].'</br>';
+			echo "</br> Nom: ".$Nom[$i].'</br>';
+			echo "Prix: ".$Prix[$i].'</br>';
+			//echo $Description['1'].'</br>';
+			echo "Stock: ".$Stock[$i].'</br>';
+			
+			?></article>
+			<?php
+				}
+			?>
+		</div>
+
+		<footer>
+			<small>
+				<p>
+					<a href="#"> Terms </a>  | <a href="#"> Privacy </a>  | 
+					<a href="#"> Security </a>  | <a href="#"> Help </a>  | 
+					<a href="#"> Blog </a>  | <a href="#"> About </a>  | 
+					<a href="mailto:ECEbay@gmail.com">Contact us</a><br>
+					Droits d'auteur : Copyright &copy; 2019, ECEbay, Inc. | Paris, FRANCE
+				</p>
+			</small>
+		</footer>
+	</body>
+</html>

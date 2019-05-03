@@ -9,10 +9,8 @@
 		<form action="http://localhost/ECEbay/Connexion/AcheteurB.php" method="post">
 			<table>
 			<tr>
-
 				<td>Mail:</td>
 				<td><input type="text" name="mail"></td>
-
 			</tr>
 			<tr>
 				<td>Mot de Passe:</td>

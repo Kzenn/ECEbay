@@ -50,38 +50,7 @@ if($Verif==0)
 else if ($Verif==1)
 {echo "Mail déjà existant. <br> <br>";}
 
-
 header('Location: http://localhost/ECEbay/Inscription/Acheteur.php');
-
-//Affichage de la base de données
-/*$sql="SELECT * FROM acheteur" ;
-
-if ($db_found) 
-
-{	
-$result = mysqli_query($db_handle, $sql);
-
-while ($data = mysqli_fetch_assoc($result)) 
-	{
-		echo "Nom:" . $data['Nom'] . '<br>';
-		echo "Prenom:" . $data['Prenom'] . '<br>';
-		echo "Adresse:" . $data['Adresse'] . '<br>';
-		echo "Mail:" . $data['Mail'] . '<br>';
-		echo "Solde:" . $data['Solde'] . '<br>';
-		echo "Numero de carte:" . $data['NCarte'] . '<br>';
-		echo "Expiration:" . $data['Expiration'] . '<br>';
-		echo "PIN:" . $data['PIN'] . '<br>';
-		echo "Admin:" . $data['Admin'] . '<br>';
-		echo "Mot de passe:" . $data['MDP'] . '<br>'.'<br>';
-	
-	}
-}
-
-else 
-{
-	echo "Database not found";
-}*/
-
 
 mysqli_close($db_handle);
 ?>
