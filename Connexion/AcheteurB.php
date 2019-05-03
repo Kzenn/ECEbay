@@ -32,7 +32,7 @@ if($db_found){
 					echo "Mail de la connexion: ".$_SESSION['Mail'];
 
 					// PENSEZ A REMPLACER LA LIGNE SUIVANTE PAR LA PAGE D ACCUEIL REDIRIGE APRES LA CONNEXION //
-					header('Location: http://localhost/ECEbay/ECEbay-Visuel/Categories.html');
+					header('Location: http://localhost/ECEbay/Categories.html');
 				}
 		else{
 			// L un des parametres est inccorect
