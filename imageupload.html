@@ -11,25 +11,28 @@
 </style>
 </head>
 <body>
-  <input type='file' onchange="readURL(this);" />
-    <img id="ID" src="#" alt="your image" />
+  <input type="file" id="files" />
+<output id="list"></output>
 	
 	<script type="text/javascript">
-	     function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                   
-                         $('#ID').attr(e.target.result)
-                         $('#ID').width(150)
-                         $('#ID').height(200);
+if (window.FileReader) {
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  function handleFileSelect(evt) {
+        var files = evt.target.files;
+        var f = files[0];
+        var reader = new FileReader();
+         
+          reader.onload = (function(theFile) {
+                return function(e) {
+                  document.getElementById('list').innerHTML = ['<img src="', e.target.result,'" title="', theFile.name, '" width="50" />'].join('');
                 };
-
-                reader.readAsDataURL(input.files[0]);
-				var fileName = input.files[0].name; 
-            }
-        }
+          })(f);
+           
+          reader.readAsDataURL(f);
+}
+} else {
+  alert('This browser does not support FileReader');
+}
 </script>
 </body>
 </html>
