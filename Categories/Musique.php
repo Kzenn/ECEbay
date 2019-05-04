@@ -41,6 +41,8 @@ if($db_found)
 else{echo "ma base n'existe pas";}
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -81,20 +83,24 @@ else{echo "ma base n'existe pas";}
 			<?php
 				for($i = 1; $i <= $NbArticles; $i++)
 				{
-			?>
-			<article><?php echo 'Article '.$i;
-			//echo $ID['1'].'</br>';
-			echo "</br> Nom: ".$Nom[$i].'</br>';
-			echo "Prix: ".$Prix[$i].'</br>';
-			//echo $Description['1'].'</br>';
-			echo "Stock: ".$Stock[$i].'</br>';
+					?>
+					<article><?php echo 'Article '.$i;
+					//echo $ID['1'].'</br>';
+					echo "</br> Nom: ".$Nom[$i].'</br>';
+					echo "Prix: ".$Prix[$i].'</br>';
+					//echo $Description['1'].'</br>';
+					echo "Stock: ".$Stock[$i].'</br>';
 
-			echo "Auteur: ".$Auteur[$i].'</br>';
-			echo "Date_Parution ".$Date_Parution[$i].'</br>';
-			echo "Genre: ".$Genre[$i].'</br>';
+					echo "Auteur: ".$Auteur[$i].'</br>';
+					echo "Date_Parution ".$Date_Parution[$i].'</br>';
+					echo "Genre: ".$Genre[$i].'</br>';
+
 			
-			?></article>
-			<?php
+					?>
+						<form action="http://localhost/ECEbay/<Categories/AjoutPanier.php" method="post">
+						<td colspan="2" align="center"><input type="submit" value="Ajouter au panier" /></td>
+					</article>
+				<?php
 				}
 			?>
 		</div>

@@ -21,7 +21,7 @@ $idmax=$row['ID_Produit'];
 
 
 $ID_Produit=$idmax+1;
-$ID_Vendeur=0;
+$ID_Vendeur=$_SESSION['ID'];
 $Nom = isset($_POST['nom']) ? $_POST['nom']:"";
 $Prix = isset($_POST["prix"]) ? $_POST["prix"]:"";
 $Stock = isset($_POST["stock"]) ? $_POST["stock"]:"";

@@ -18,11 +18,11 @@ session_start();
 						<img src="Images/menu.jpg">
 						<ul class="l2">
 							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
-							<li><a href="VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
 							<li><a href="http://localhost/ECEbay/Vente.php" title="Accéder à la vente">Vendre</a></li>
 							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
-							<li><a href="Panier.php" title="Accéder au panier">Panier</a></li>
-							<li><a href="Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
 						</ul>
 					</li>
 				</ul>

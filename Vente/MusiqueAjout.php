@@ -1,6 +1,5 @@
 <?php
-session_start(); // On démarre la session AVANT toute chose
-//mettre les données recupérées  dans la base de données
+session_start(); 
     
    $dbname = "ecebay";
    $db_login = "root";
@@ -73,10 +72,6 @@ if($Verif==0)
 }
 else if ($Verif==1)
 {echo "Mail déjà existant. <br> <br>";}
-
-
-
-
 
 
 
