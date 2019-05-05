@@ -16,14 +16,15 @@ session_start();
 					<li >
 						<img src="Images/menu.jpg">
 						<ul class="l2">
-							<li><a href="http://localhost/ECEbay/Categories.php" title="Page principale">Catégories</a></li>
+							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
 							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
-							<li><a href="http://localhost/ECEbay/Vendre.php" title="Vendre">Vendre</a></li>
+							<li><a href="http://localhost/ECEbay/Vendre.php" title="Accéder à la vente">Vendre</a></li>
 							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
 							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
 							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
+							<li><a href="http://localhost/ECEbay/Inscription.php" title="Créer un compte">Créer un compte</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -38,23 +39,24 @@ session_start();
 
 		<div id="corps">
 			
-		<h2>Connexion à votre compte Acheteur</h2>
-		<form action="http://localhost/ECEbay/Connexion/AcheteurB.php" method="post">
+
+		<form action="http://localhost/ECEbay/InscriptionRedirect.php" method="post">
 			<table>
-			<tr>
-				<td>Mail:</td>
-				<td><input type="text" name="mail"></td>
-			</tr>
-			<tr>
-				<td>Mot de Passe:</td>
-				<td><input type="password" name="password"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-				<input type="submit" name="button" value="Connexion"></td>
-			</tr>
+				       <td><label for="categorie">Quelle type de compte créer ?</label><br/>
+       						<select name="categorie">
+          						<option value="acheteur">Acheteur</option>
+           						<option value="vendeur">Vendeur</option>
+       						</select></td>
+       			</tr>
+
+				<tr>
+					<td colspan="2" align="center"><input type="submit" n="Valider"></td>
+				</tr>
 			</table>
 		</form>
+		</p>
+
+
 
 
 		</div>

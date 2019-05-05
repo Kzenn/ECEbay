@@ -56,12 +56,14 @@ else{echo "ma base n'existe pas";}
 					<li>
 						<img src="../Images/menu.jpg">
 						<ul class="l2">
-							<li><a href="../Categories.php" title="Page principale">Catégories</a></li>
-							<li><a href="../VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
-							<li><a href="../Vendre.php" title="Accéder à la vente">Vendre</a></li>
-							<li><a href="../Compte.php" title="Accéder à votre compte">Votre compte</a></li>
-							<li><a href="../Panier.php" title="Accéder au panier">Panier</a></li>
-							<li><a href="../Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Categories.php" title="Page principale">Catégories</a></li>
+							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="http://localhost/ECEbay/Vendre.php" title="Vendre">Vendre</a></li>
+							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -99,11 +101,7 @@ else{echo "ma base n'existe pas";}
 			$Modele[$j] = $data['Modele'];
 			$Genre[$j] = $data['Genre'];
 			
-			?>
-				<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
-			<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
-				</form>
-			</article>
+			?></article>
 			<?php
 				}
 			?>

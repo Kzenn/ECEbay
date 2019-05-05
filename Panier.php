@@ -19,7 +19,6 @@ if($db_found)
 
 	
 		$ID=$_SESSION['ID'];
-		echo "Session: ".$ID;
 
 		$result = mysqli_query($db_handle, "SELECT * FROM panier Where ID_User like '$ID'");
 		while($data = mysqli_fetch_assoc($result)) 
@@ -124,12 +123,14 @@ else{echo "ma base n'existe pas";}
 					<li >
 						<img src="Images/menu.jpg">
 						<ul class="l2">
-							<li><a href="Categories.php" title="Page principale">Catégories</a></li>
-							<li><a href="VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
-							<li><a href="Vendre.php" title="Accéder à la vente">Vendre</a></li>
-							<li><a href="Compte.php" title="Accéder à votre compte">Votre compte</a></li>
-							<li><a href="#" id="currentpage" title="Page actuelle">Panier</a></li>
-							<li><a href="Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Categories.php">Catégories</a></li>
+							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="http://localhost/ECEbay/Vendre.php" title="Accéder à la vente">Vendre</a></li>
+							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -145,14 +146,16 @@ else{echo "ma base n'existe pas";}
 		<div id="corps">
 			
 			<?php
-				for($i = 1; $i <= $NbArticles; $i++)
+				if($NbArticles==0)
+					{echo "Panier vide.";}
+				else {for($i = 1; $i <= $NbArticles; $i++)
 					{
 						?>
 						<article><?php echo 'Article '.$i;
 								//echo $ID['1'].'</br>';
 								echo "</br> ID: ".$Produit[$i]['ID'].'</br>';
 								echo "Nom: ".$Produit[$i]['Nom'].'</br>';
-								echo "Prix: ".$Produit[$i]['Prix'].'</br>';
+								echo "Prix: ".$Produit[$i]['Prix'].'</br> </br> ';
 
 								?>
 						</article>
@@ -160,7 +163,7 @@ else{echo "ma base n'existe pas";}
 							}
 						
 						echo "</br>"."Prix total du panier: ".$PrixTotal;
-						echo "</br>"."ID1: ".$ID_Produit1;
+						//echo "</br>"."ID1: ".$ID_Produit1;
 						$_SESSION['PrixPanier'] = $PrixTotal;
 						?>
 
@@ -171,7 +174,11 @@ else{echo "ma base n'existe pas";}
 						<input type="hidden" name="ID_Produit3"></input>
 						<input type="hidden" name="ID_Produit4"></input>
 						<input type="hidden" name="ID_Produit5"></input>
-						<td colspan="2" align="center"><input type="submit" name="Acheter"></td>
+						<td colspan="2" align="center"><input type="submit" value="Acheter"></td> <?php } ?>
+
+						<form action="http://localhost/ECEbay/Vider.php" method="post">
+						<td colspan="2" align="center"><input type="submit" value="Vider le panier"></td>
+
 
 		</div>
 		

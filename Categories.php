@@ -23,6 +23,9 @@ session_start();
 							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
+							<li><a href="http://localhost/ECEbay/Inscription.php" title="Créer un compte">Créer un compte</a></li>
 						</ul>
 					</li>
 				</ul>

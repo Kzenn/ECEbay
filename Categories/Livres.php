@@ -66,6 +66,8 @@ else{echo "ma base n'existe pas";}
 							<li><a href="../Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="../Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="../Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -93,11 +95,7 @@ else{echo "ma base n'existe pas";}
 			//echo $Description['1'].'</br>';
 			echo "Stock: ".$Stock[$i].'</br>';
 			
-			?>
-				<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
-			<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
-				</form>
-			</article>
+			?></article>
 			<?php
 				}
 			?>
