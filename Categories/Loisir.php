@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+$database = "ecebay";
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+$j=0;
+	
+//si le BDD existe, faire le traitement. Trouver les ID des livres
+if($db_found) 
+{
+	$result = mysqli_query($db_handle, "SELECT * FROM equipement ORDER BY ID_Produit" );
+	while($data = mysqli_fetch_assoc($result)) 
+	{
+		$ID=$data['ID_Produit'];
+		
+		$resultBIS = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Produit like '$ID'");
+		while($data2 = mysqli_fetch_assoc($resultBIS)) 
+		{
+
+			$j=$j+1;
+
+			//on recupère dans des tableaux
+			$IDBis[$j] = $data2['ID_Produit'];
+			$Nom[$j] = $data2['Nom'];
+			$Prix[$j] = $data2['Prix'].'</br>';
+			$Description[$j] = $data2['Description'];
+			$Stock[$j] = $data2['Stock'];
+
+			$Auteur[$j] =$data['Auteur'].'</br>';
+			$Editeur[$j] =$data['Editeur'].'</br>';
+			$Date_Parution[$j] =$data['Date_Parution'].'</br>';
+			$Genre[$j] =$data['Genre'].'</br>';
+			
+		}//end while 
+		echo '</br>';
+		$NbArticles=$j;
+	}//end while 
+}//endif
+else{echo "ma base n'existe pas";}
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>

@@ -20,12 +20,12 @@ if($db_found)
 		{
 			$j=$j+1;
 
-			$ID[$j] = $data2['ID_Produit'];
+			$IDBis[$j] = $data2['ID_Produit'];
 			$Nom[$j] = $data2['Nom'];
 			$Auteur[$j] = $data['Auteur'];
 			$Prix[$j] = $data2['Prix'].'</br>';
 
-			//$Description[$j] = $data2['Description'];
+			$Description[$j] = $data2['Description'];
 			$Stock[$j] = $data2['Stock'];
 			
 			$Date_Parution[$j] = $data['Date_Parution'];
@@ -97,8 +97,9 @@ else{echo "ma base n'existe pas";}
 
 			
 					?>
-						<form action="http://localhost/ECEbay/Categories/AjoutPanier.php" method="post">
-						<td colspan="2" align="center"><input type="submit" value="Ajouter au panier" /></td>
+						<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
+				<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
+						</form>
 					</article>
 				<?php
 				}

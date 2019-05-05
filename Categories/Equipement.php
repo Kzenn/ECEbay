@@ -21,7 +21,7 @@ if($db_found)
 			$j=$j+1;
 
 			//on recupère dans des tableaux
-			$ID[$j] = $data2['ID_Produit'];
+			$IDBis[$j] = $data2['ID_Produit'];
 			$Nom[$j] = $data2['Nom'];
 			$Prix[$j] = $data2['Prix'].'</br>';
 			$Description[$j] = $data2['Description'];
@@ -88,7 +88,11 @@ else{echo "ma base n'existe pas";}
 			echo "Stock: ".$Stock[$i].'</br>';
 			echo "Sport: ".$Sport[$i].'</br>';
 			
-			?></article>
+			?>
+				<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
+			<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
+				</form>
+				</article>
 			<?php
 				}
 			?>

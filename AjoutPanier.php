@@ -1,7 +1,11 @@
 <?php
 session_start();
 //mettre les données recupérées  dans la base de données
-    
+
+
+$type = isset($_POST["type"])? $_POST["type"] : "";
+
+
    $dbname = "ecebay";
    $db_login = "root";
    $db_pass	= "";
@@ -11,67 +15,18 @@ $database= "ecebay";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
-
-/*$ID=$data['ID_Produit'];
-
-
-	
-$result = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Produit like '$ID'");
-while($data = mysqli_fetch_assoc($result)) 
-	{
-	$j=$j+1;
-
-	$ID[$j] = $data2['ID_Produit'];
-	$Nom[$j] = $data2['Nom'];
-	$Auteur[$j] = $data['Auteur'];
-	$Prix[$j] = $data2['Prix'].'</br>';
-
-	//$Description[$j] = $data2['Description'];
-	$Stock[$j] = $data2['Stock'];
-			
-	$Date_Parution[$j] = $data['Date_Parution'];
-	$Genre[$j] = $data['Genre'];
-
-			//$Sport[$j] = $data['Sport'];
-
-}//end while 
-echo '</br>';
-$NbArticles=$j; */
-
-
-$ID_User = 25;
-$ID_Produit1 = 11;
-$ID_Produit2 = 21;
-$ID_Produit3 = 31;
-$ID_Produit4 = 41;
-$ID_Produit5 = 51;
-
-
-
-
-$Verif=0;
-
-/*Verifier si le mail du nouveau profil existe déjà ou non dans la bdd
-if($db_found) {
-
-	$sql = "SELECT * FROM vendeur";
-	$result = mysqli_query($db_handle,$sql);
-	while($data = mysqli_fetch_assoc($result)) 
-		{
-		if($Mail == $data['Mail'])
-			{$Verif=1;}
-		}
-	} */
+$ID_Produit = isset($_POST["ID_Produit"])? $_POST["ID_Produit"] : "";
+$ID_User=$_SESSION['ID'];
 
 //inserer dans la table panier
-if($Verif==0)
-{
 		$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		$sql = "INSERT INTO panier VALUES('$ID_User', '$ID_Produit1', '$ID_Produit2', '$ID_Produit3', '$ID_Produit4', '$ID_Produit5' )";
+		$sql = "INSERT INTO panier (ID_User, ID_Produit1) VALUES('$ID_User', '$ID_Produit')";
 		$bdd->query($sql);
-}
-else if ($Verif==1)
-{echo "Mail déjà existant. <br> <br>";}
-
+		
+		// Ce Lien renvoi a la page consulté precedement
+		//header("location:javascript://history.go(-1)");
+		
+		//Ce lien renvoi vers la page Panier
+		//header('Location: http://localhost/ECEbay/Panier.php');
 mysqli_close($db_handle);
 ?>
