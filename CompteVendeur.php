@@ -2,6 +2,9 @@
 session_start();
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,52 +14,73 @@ session_start();
 	</head>
 	<body>
 		<header>
+			<div id="connexion">
+				<img src="Images/login.jpg">
+			</div>
+			<div>
+				<h1>ECEbay</h1>
+			</div>
 			<nav>
 				<ul>
 					<li >
-						<img src="http://localhost/ECEbay/Images/menu.jpg">
+						Menu
 						<ul class="l2">
-							<li><a href="http://localhost/ECEbay/Categories.php">Catégories</a></li>
+							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
 							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
 							<li><a href="http://localhost/ECEbay/Vendre.php" title="Accéder à la vente">Vendre</a></li>
 							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
-							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
-							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>
 			</nav>
-			<div id="nom">
-				<h1>ECEbay</h1>
-			</div>
-			<div id="connexion">
-				<a href="#" title="Compte" id="connex"><img src="http://localhost/ECEbay/Images/login.jpg"></a>
-			</div>
 		</header>
 
 		<div id="corps">
 			
-		
-				<h2>Connexion à votre compte Vendeur</h2>
-<form action="http://localhost/ECEbay/Connexion/VendeurB.php" method="post">
-<table>
-<tr>
-<td>Mail:</td>
-<td><input type="text" name="mail" size="20"></td>
-</tr>
-<tr>
-<td>Mot de Passe:</td>
-<td><input type="password" name="password" size="20"></td>
-</tr>
-<tr>
-<td colspan="2" align="center">
- <input type="submit" name="button" value="Connexion"></td>
-</tr>
-</table>
-</form>
+			<?php
+			$database = "ecebay";
 
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if($_SESSION['ID'] !='')
+			{$ID=$_SESSION['ID'];
+
+			$result = mysqli_query($db_handle,"SELECT * FROM vendeur WHERE ID_Vendeur LIKE '$ID'");
+			$row = mysqli_fetch_array($result);
+
+			Echo "ID vendeur: " .$row['ID_Vendeur'].'</br>';
+			Echo "Pseudo: " .$row['Pseudo'].'</br>';
+			Echo "Mail: " .$row['Mail'].'</br>';
+			Echo "Solde: " .$row['Solde'].'</br>';
+			}
+			mysqli_close($db_handle);
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Compte</title>
+    </head>
+    <body>
+    <p>
+        <a href="http://localhost/ECEbay/Connexion.php">Connexion</a><br />
+
+    </p>
+    <p>
+        <a href="http://localhost/ECEbay/Deconnexion.php">Deconnexion</a><br />
+
+    </p>
+    </body>
+</html>
+
+<?php
+if($_SESSION['ID'] ==''){echo "Pas de compte connecté";}
+?>
 		</div>
 		
 		<footer>

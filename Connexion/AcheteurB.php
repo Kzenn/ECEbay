@@ -20,12 +20,9 @@ if($db_found){
 
 
 		if($password != ""){
-			//$sql = "SELECT * from 'acheteur' Where Mail_USer like '$Mail' and LIKE '$password'";
 			$result = mysqli_query($db_handle, "SELECT * from acheteur Where Mail like '$Mail' and MDP LIKE '$password'");
-			//echo "balise 4".'</br>';
 			if (mysqli_num_rows($result) != 0) 
 				{
-
 					$row = mysqli_fetch_array($result);
 					$ID_Connexion=$row['ID_User'];
 					$_SESSION['ID'] = $ID_Connexion;

@@ -176,8 +176,7 @@ else{echo "ma base n'existe pas";}
 						<input type="hidden" name="ID_Produit5"></input>
 						<td colspan="2" align="center"><input type="submit" value="Acheter"></td> <?php } ?>
 
-						<form action="http://localhost/ECEbay/Vider.php" method="post">
-						<td colspan="2" align="center"><input type="submit" value="Vider le panier"></td>
+						<a href="http://localhost/ECEbay/Vider.php">Vider le panier</a>
 
 
 		</div>

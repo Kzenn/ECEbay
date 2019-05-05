@@ -46,11 +46,29 @@ if($Verif==0)
 		$sql .= "'$ID_User','$Nom','$Prenom','$Adresse','$Mail', '$Solde', '$PIN', '$Ncarte', '$Expiration', '$Admin', '$Mdp' )";
 	
 		$bdd->query($sql);
+
+		$result = mysqli_query($db_handle, "SELECT * FROM `acheteur` ORDER BY `ID_user` DESC LIMIT 1");
+		$row = mysqli_fetch_array($result);
+		$ID_User=$row['ID_User'];
+		echo $ID_User;
+
+		$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
+		$sql = "INSERT INTO panier (ID_User, ID_Produit1, ID_Produit2, ID_Produit3, ID_Produit4, ID_Produit5) VALUES('$ID_User', '0', '0', '0', '0', '0' )";
+		$bdd->query($sql);
+
+
+
+
+
 }
 else if ($Verif==1)
 {echo "Mail déjà existant. <br> <br>";}
 
-header('Location: http://localhost/ECEbay/Inscription/Acheteur.php');
+
+
+
+
+//header('Location: http://localhost/ECEbay/Inscription/Acheteur.php');
 
 mysqli_close($db_handle);
 ?>

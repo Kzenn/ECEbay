@@ -30,30 +30,33 @@ if($db_found)
 		$ID_Vendeur = $data['ID_Vendeur'];
 	}
 }
-$Stock=$Stock - 1;
-
-//Reduir le stock
-$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-$sql = "UPDATE produit SET Stock = '$Stock' WHERE ID_Produit like '$ID_Produit1'";
-$bdd->query($sql);
-
-
-//Recuperer le solde vendeur
-if($db_found) 
+if($Stock > 0)
 {
-	$result = mysqli_query($db_handle, "SELECT * FROM vendeur WHERE ID_Vendeur like '$ID_Vendeur' " );
-	while($data = mysqli_fetch_assoc($result)) 
-	{
-		$Solde = $data['Solde'];
+			$Stock=$Stock - 1;
 
-	}
-}
-$Solde=$Solde + $Prix;
+			//Reduir le stock
+			$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
+			$sql = "UPDATE produit SET Stock = '$Stock' WHERE ID_Produit like '$ID_Produit1'";
+			$bdd->query($sql);
 
-//Augmenter le solde vendeur
-$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-$sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
-$bdd->query($sql);
+
+			//Recuperer le solde vendeur
+			if($db_found) 
+			{
+				$result = mysqli_query($db_handle, "SELECT * FROM vendeur WHERE ID_Vendeur like '$ID_Vendeur' " );
+				while($data = mysqli_fetch_assoc($result)) 
+				{
+					$Solde = $data['Solde'];
+
+				}
+			}
+			$Solde=$Solde + $Prix;
+
+			//Augmenter le solde vendeur
+			$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
+			$sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
+			$bdd->query($sql);}
+
 
 //******************************Recuperer le stock actuelle*****************************
 if($db_found) 
@@ -66,6 +69,8 @@ if($db_found)
 		$ID_Vendeur = $data['ID_Vendeur'];
 	}
 }
+if($Stock > 0)
+{
 $Stock=$Stock - 1;
 
 //Reduir le stock
@@ -89,7 +94,7 @@ $Solde=$Solde + $Prix;
 //Augmenter le solde vendeur
 $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
 $sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
-$bdd->query($sql);
+$bdd->query($sql);}
 
 
 
@@ -104,6 +109,8 @@ if($db_found)
 		$ID_Vendeur = $data['ID_Vendeur'];
 	}
 }
+if($Stock > 0)
+{
 $Stock=$Stock - 1;
 
 //Reduir le stock
@@ -127,7 +134,7 @@ $Solde=$Solde + $Prix;
 //Augmenter le solde vendeur
 $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
 $sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
-$bdd->query($sql);
+$bdd->query($sql);}
 
 
 
@@ -142,6 +149,8 @@ if($db_found)
 		$ID_Vendeur = $data['ID_Vendeur'];
 	}
 }
+if($Stock > 0)
+{
 $Stock=$Stock - 1;
 
 //Reduir le stock
@@ -165,7 +174,7 @@ $Solde=$Solde + $Prix;
 //Augmenter le solde vendeur
 $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
 $sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
-$bdd->query($sql);
+$bdd->query($sql);}
 
 
 
@@ -180,6 +189,8 @@ if($db_found)
 		$ID_Vendeur = $data['ID_Vendeur'];
 	}
 }
+if($Stock > 0)
+{
 $Stock=$Stock - 1;
 
 //Reduir le stock
@@ -203,8 +214,8 @@ $Solde=$Solde + $Prix;
 //Augmenter le solde vendeur
 $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
 $sql = "UPDATE vendeur SET Solde = '$Solde' WHERE ID_Vendeur like '$ID_Vendeur' ";
-$bdd->query($sql);
+$bdd->query($sql);}
 
-
+header("location:http://localhost/ECEbay/Vider.php");
 
 ?>
