@@ -97,7 +97,7 @@ else{echo "ma base n'existe pas";}
 
 			
 					?>
-						<form action="http://localhost/ECEbay/<Categories/AjoutPanier.php" method="post">
+						<form action="http://localhost/ECEbay/Categories/AjoutPanier.php" method="post">
 						<td colspan="2" align="center"><input type="submit" value="Ajouter au panier" /></td>
 					</article>
 				<?php
