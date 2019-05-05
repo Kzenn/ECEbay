@@ -40,28 +40,28 @@ $result = mysqli_query($db_handle, "SELECT * FROM panier Where ID_User like '$ID
 			} else if($ID_Produit1[$j] != 0 && $ID_Produit2[$j] == 0)
 			{
 				$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		        $sql = "INSERT INTO panier (ID_User, ID_Produit2) VALUES('$ID_User', '$ID_Produit')";
+		        $sql = "UPDATE panier SET ID_Produit2='$ID_Produit' where ID_User = $ID_User";
 		        $bdd->query($sql);
 				header("location:javascript://history.go(-1)");
 				
 			}	else if($ID_Produit1[$j] != 0 && $ID_Produit2[$j] != 0 && $ID_Produit3[$j] == 0)
 			{
 				$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		        $sql = "INSERT INTO panier (ID_User, ID_Produit3) VALUES('$ID_User', '$ID_Produit')";
+		        $sql = "UPDATE panier SET ID_Produit3='$ID_Produit' where ID_User = $ID_User";
 		        $bdd->query($sql);
 				header("location:javascript://history.go(-1)");
 				
 			}	else if($ID_Produit1[$j] != 0 && $ID_Produit2[$j] != 0 && $ID_Produit3[$j] != 0 && $ID_Produit4[$j] == 0)
 			{
 				$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		        $sql = "INSERT INTO panier (ID_User, ID_Produit4) VALUES('$ID_User', '$ID_Produit')";
+		        $sql = "UPDATE panier SET ID_Produit4='$ID_Produit' where ID_User = $ID_User";
 		        $bdd->query($sql);
 				header("location:javascript://history.go(-1)");
 				
 			} else if($ID_Produit1[$j] != 0 && $ID_Produit2[$j] != 0 && $ID_Produit3[$j] != 0 && $ID_Produit4[$j] != 0 && $ID_Produit5[$j] == 0)
 			{
 				$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		        $sql = "INSERT INTO panier (ID_User, ID_Produit5) VALUES('$ID_User', '$ID_Produit')";
+		        $sql = "UPDATE panier SET ID_Produit5='$ID_Produit' where ID_User = $ID_User";
 		        $bdd->query($sql);
 				header("location:javascript://history.go(-1)");
 				
