@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -10,11 +12,12 @@ session_start();
 		<title>ECEbay</title>
 	</head>
 	<body>
+
 		<header>
 			<nav>
 				<ul>
 					<li >
-						<img src="Images/menu.jpg">
+						<img src="http://localhost/ECEbay/Images/menu.jpg">
 						<ul class="l2">
 							<li><a href="Categories.php" title="Page principale">Catégories</a></li>
 							<li><a href="VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
@@ -30,26 +33,35 @@ session_start();
 				<h1>ECEbay</h1>
 			</div>
 			<div id="connexion">
-				<a href="#" title="Compte" id="connex"><img src="Images/login.jpg"></a>
+				<a href="#" title="Compte" id="connex"><img src="http://localhost/ECEbay/Images/login.jpg"></a>
 			</div>
 		</header>
 
 		<div id="corps">
 			
-		<form action="http://localhost/ECEbay/VendreRedirect.php" method="post">
+		
+			<form action="http://localhost/ECEbay/Acheter/AchatRedirect.php" method="post">
 			<table>
-				       <td><label for="categorie">Quelle categorie de produits vendez vous ?</label><br/>
-       						<select name="categorie">
-          						<option value="livre">Livres</option>
-           						<option value="musique">Musique</option>
-           						<option value="vetement">Vetement</option>
-           						<option value="equipement">Equipement</option>
-       						</select></td>
-       			</tr>
+					<tr>
+						<td>A payer: <?php echo $_SESSION['PrixPanier'];  ?> </td>
+					</tr>
+					<tr>
+						<td>Numero de carte:</td>
+						<td><input type="int" name="Ncarte"></td>
+					</tr>
+					<tr>
+						<td>PIN:</td>
+						<td><input type="int" name="PIN"></td>
+					</tr>	
+					<tr>
+						<td>Date d'expiration:</td>
+						<td><input type="date" name="DateExpiration"></td>
+					</tr>
 
-				<tr>
-					<td colspan="2" align="center"><input type="submit" n="Valider"></td>
-				</tr>
+
+					<tr>
+						<td colspan="2" align="center"><input type="submit" n="Valider"></td>
+					</tr>
 			</table>
 		</form>
 		</p>
@@ -69,3 +81,5 @@ session_start();
 		</footer>
 	</body>
 </html>
+
+

@@ -31,6 +31,11 @@ if($db_found)
 			$ID_Produit4= $data['ID_Produit4'];
 			$ID_Produit5= $data['ID_Produit5'];
 			//$ID=$data['ID_Produit'];
+			$_SESSION['ID_Produit1']=$ID_Produit1;
+			$_SESSION['ID_Produit2']=$ID_Produit2;
+			$_SESSION['ID_Produit3']=$ID_Produit3;
+			$_SESSION['ID_Produit4']=$ID_Produit4;
+			$_SESSION['ID_Produit5']=$ID_Produit5;
 		
 			$resultProduit1 = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Produit like '$ID_Produit1'");
 			while($dataProduit1 = mysqli_fetch_assoc($resultProduit1)) 
@@ -153,7 +158,20 @@ else{echo "ma base n'existe pas";}
 						</article>
 							<?php
 							}
+						
+						echo "</br>"."Prix total du panier: ".$PrixTotal;
+						echo "</br>"."ID1: ".$ID_Produit1;
+						$_SESSION['PrixPanier'] = $PrixTotal;
 						?>
+
+						<form action="http://localhost/ECEbay/Acheter/Achat.php" method="post">
+						<input type="hidden" name="prix"></input>
+						<input type="hidden" name="ID_Produit1" value="<?php $ID_Produit1 ?>"> </input>
+						<input type="hidden" name="ID_Produit2"></input>
+						<input type="hidden" name="ID_Produit3"></input>
+						<input type="hidden" name="ID_Produit4"></input>
+						<input type="hidden" name="ID_Produit5"></input>
+						<td colspan="2" align="center"><input type="submit" name="Acheter"></td>
 
 		</div>
 		

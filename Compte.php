@@ -25,12 +25,12 @@ session_start();
 					<li >
 						Menu
 						<ul class="l2">
-							<li><a href="Categories.html">Catégories</a></li>
-							<li><a href="VentesFlash.html">Ventes flash</a></li>
-							<li><a href="Vendre.html">Vendre</a></li>
-							<li><a href="#">Votre compte</a></li>
-							<li><a href="Panier.html">Panier</a></li>
-							<li><a href="Admin.html">Admin</a></li>
+							<li><a href="#" id="currentpage" title="Page actuelle">Catégories</a></li>
+							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
+							<li><a href="http://localhost/ECEbay/Vendre.php" title="Accéder à la vente">Vendre</a></li>
+							<li><a href="http://localhost/ECEbay/Compte.php" title="Accéder à votre compte">Votre compte</a></li>
+							<li><a href="http://localhost/ECEbay/Panier.php" title="Accéder au panier">Panier</a></li>
+							<li><a href="http://localhost/ECEbay/Admin.php" title="Espace réservé aux admins">Admin</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -40,27 +40,27 @@ session_start();
 		<div id="corps">
 			
 			<?php
-$database = "ecebay";
+			$database = "ecebay";
 
-$db_handle = mysqli_connect('localhost', 'root', '');
-$db_found = mysqli_select_db($db_handle, $database);
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
 
-if($_SESSION['ID'] !='')
-{$ID=$_SESSION['ID'];
+			if($_SESSION['ID'] !='')
+			{$ID=$_SESSION['ID'];
 
-$result = mysqli_query($db_handle,"SELECT * FROM acheteur WHERE ID_User LIKE '$ID'");
-$row = mysqli_fetch_array($result);
+			$result = mysqli_query($db_handle,"SELECT * FROM acheteur WHERE ID_User LIKE '$ID'");
+			$row = mysqli_fetch_array($result);
 
-Echo "ID user: " .$row['ID_User'].'</br>';
-Echo "Nom: " .$row['Nom'].'</br>';
-Echo "Prenom: " .$row['Prenom'].'</br>';
-Echo "Adresse: " .$row['Adresse'].'</br>';
-Echo "Mail: " .$row['Mail'].'</br>';
-Echo "Solde: " .$row['Solde'].'</br>';
-Echo "Numero de carte: " .$row['NCarte'].'</br>';
-Echo "Date d'expiration de la carte: " .$row['Expiration'].'</br>';
-}
-mysqli_close($db_handle);
+			Echo "ID user: " .$row['ID_User'].'</br>';
+			Echo "Nom: " .$row['Nom'].'</br>';
+			Echo "Prenom: " .$row['Prenom'].'</br>';
+			Echo "Adresse: " .$row['Adresse'].'</br>';
+			Echo "Mail: " .$row['Mail'].'</br>';
+			Echo "Solde: " .$row['Solde'].'</br>';
+			Echo "Numero de carte: " .$row['NCarte'].'</br>';
+			Echo "Date d'expiration de la carte: " .$row['Expiration'].'</br>';
+			}
+			mysqli_close($db_handle);
 
 ?>
 

@@ -39,12 +39,12 @@ echo '</br>';
 $NbArticles=$j; */
 
 
-$ID_User = 25;
-$ID_Produit1 = 11;
-$ID_Produit2 = 21;
-$ID_Produit3 = 31;
-$ID_Produit4 = 41;
-$ID_Produit5 = 51;
+$ID_User = 15;
+$ID_Produit1 = 1;
+$ID_Produit2 = 2;
+$ID_Produit3 = 3;
+$ID_Produit4 = 4;
+$ID_Produit5 = 5;
 
 
 
@@ -67,11 +67,17 @@ if($db_found) {
 if($Verif==0)
 {
 		$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		$sql = "INSERT INTO panier VALUES('$ID_User', '$ID_Produit1', '$ID_Produit2', '$ID_Produit3', '$ID_Produit4', '$ID_Produit5' )";
+		$sql = "INSERT INTO panier (ID_User,ID_Produit1, ID_Produit2, ID_Produit3, ID_Produit4, ID_Produit5) VALUES(";
+		$sql .= "'$ID_User', '$ID_Produit1', '$ID_Produit2', '$ID_Produit3', $ID_Produit4', '$ID_Produit5' )";
+	
 		$bdd->query($sql);
 }
 else if ($Verif==1)
 {echo "Mail déjà existant. <br> <br>";}
+
+
+
+
 
 mysqli_close($db_handle);
 ?>
