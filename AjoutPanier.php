@@ -19,7 +19,7 @@ $ID_Produit = isset($_POST["ID_Produit"])? $_POST["ID_Produit"] : "";
 echo "id du produit" .$ID_Produit;
 $ID_User=$_SESSION['ID'];
 
-$result = mysqli_query($db_handle, "SELECT * FROM panier Where ID_Produit like '$ID_User'");
+$result = mysqli_query($db_handle, "SELECT * FROM panier Where ID_User like '$ID_User'");
 		while($data2 = mysqli_fetch_assoc($result)) 
 		{
 			$j=$j+1;
