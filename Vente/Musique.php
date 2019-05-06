@@ -11,7 +11,7 @@ session_start(); // On démarre la session AVANT toute chose
 
 	<body>
 
-		<form action="http://localhost/ECEbay/Vente/MusiqueAjout.php" method="post">
+		<form action="http://localhost/ECEbay/Vente/MusiqueAjout.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Nom:</td>
@@ -48,14 +48,26 @@ session_start(); // On démarre la session AVANT toute chose
            						<option value="techno">Techno</option>
        						</select></td>
        			</tr>
-
+				<input type="file"  accept="image/*" name="my_file" id="file"  onchange="loadFile(event)" style="display: none;"><br/> <br/>
+				<label for="file" style="cursor: pointer;">Upload Image</label>
+				<img id="output" width="350" />
 				<tr>
-					<td colspan="2" align="center"><input type="submit" n="Valider"></td>
+				
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="submit" value="Upload"></td>
 				</tr>
 			</table>
 		</form>
 		</p>
-
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+	var fileName = input.files[0].name; 
+};
+</script>
 	</body>
 </html>
 
