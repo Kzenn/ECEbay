@@ -21,7 +21,7 @@ if($db_found)
 			$j=$j+1;
 
 			//on recupère dans des tableaux
-			$ID[$j] = $data2['ID_Produit'];
+			$IDBis[$j] = $data2['ID_Produit'];
 			$Nom[$j] = $data2['Nom'];
 			$Prix[$j] = $data2['Prix'].'</br>';
 			$Description[$j] = $data2['Description'];
@@ -60,6 +60,8 @@ else{echo "ma base n'existe pas";}
 							<li><a href="../Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="../Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="../Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>

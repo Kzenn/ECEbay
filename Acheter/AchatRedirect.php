@@ -2,6 +2,8 @@
 session_start();
 ?>
 
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +12,7 @@ session_start();
 		<title>ECEbay</title>
 	</head>
 	<body>
+
 		<header>
 			<nav>
 				<ul>
@@ -38,24 +41,48 @@ session_start();
 
 		<div id="corps">
 			
-		
-				<h2>Connexion à votre compte Vendeur</h2>
-<form action="http://localhost/ECEbay/Connexion/VendeurB.php" method="post">
-<table>
-<tr>
-<td>Mail:</td>
-<td><input type="text" name="mail" size="20"></td>
-</tr>
-<tr>
-<td>Mot de Passe:</td>
-<td><input type="password" name="password" size="20"></td>
-</tr>
-<tr>
-<td colspan="2" align="center">
- <input type="submit" name="button" value="Connexion"></td>
-</tr>
-</table>
-</form>
+		<?php
+			$NCarte = isset($_POST['Ncarte'])? $_POST['Ncarte'] : "";
+$PIN = isset($_POST['PIN'])? $_POST['PIN'] : "";
+$DateExpiration = isset($_POST['DateExpiration'])? $_POST['DateExpiration'] : "";
+$ID_Session=$_SESSION['ID'];
+
+
+$database = "ecebay";
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+	
+$result = mysqli_query($db_handle,"SELECT * FROM acheteur WHERE ID LIKE '$ID_Session'");
+//regarder s'il y a de résultat
+if($db_found){
+ 
+			$result = mysqli_query($db_handle, "SELECT * from acheteur Where ID LIKE '$ID_Session' and NCarte like '$NCarte' and PIN LIKE '$PIN' and Expiration like '$DateExpiration'");
+
+				if (mysqli_num_rows($result) != 0) 
+					{
+						header('Location: http://localhost/ECEbay/Acheter/Transaction.php');
+					}
+		else{
+			// L un des parametres est inccorect
+			echo "Information bancaires incorrectes"; ?>
+			<form action="http://localhost/ECEbay/Acheter/Transaction.php" method="post">
+			<td colspan="2" align="center"><input type="submit" value="Forcer le payment"></td>
+			<?php
+			}
+}else 
+{
+	echo "Database not found";
+}
+
+
+
+//fermer la connexion
+
+mysqli_close($db_handle);
+
+
+?>
 
 		</div>
 		
@@ -72,4 +99,3 @@ session_start();
 		</footer>
 	</body>
 </html>
-

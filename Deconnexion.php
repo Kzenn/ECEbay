@@ -3,6 +3,6 @@
 session_start();
 
 session_destroy();
-header('Location: http://localhost/ECEbay/Connexion/Acheteur.php');
+header('Location: http://localhost/ECEbay/Categories.php');
 
 ?>

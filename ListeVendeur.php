@@ -1,5 +1,30 @@
 <?php
 session_start();
+
+
+$database = "ecebay";
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+$j=0;
+
+
+if($db_found) 
+{
+		$ID=$_SESSION['ID'];
+
+		$result = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Vendeur like '$ID'");
+		while($data = mysqli_fetch_assoc($result)) 
+		{
+		$j=$j+1;
+		$Nom[$j]=$data['Nom'];
+		$Prix[$j]=$data['Prix'];
+		$Stock[$j]=$data['Stock'];
+		$NB_Ventes[$j]=$data['NB_Ventes'];
+		}
+$NbArticles=$j;
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,10 +36,16 @@ session_start();
 	</head>
 	<body>
 		<header>
+			<div id="connexion">
+				<img src="Images/login.jpg">
+			</div>
+			<div>
+				<h1>ECEbay</h1>
+			</div>
 			<nav>
 				<ul>
 					<li >
-						<img src="http://localhost/ECEbay/Images/menu.jpg">
+						Menu
 						<ul class="l2">
 							<li><a href="http://localhost/ECEbay/Categories.php">Catégories</a></li>
 							<li><a href="http://localhost/ECEbay/VentesFlash.php" title="Accéder aux ventes flash">Ventes flash</a></li>
@@ -28,35 +59,44 @@ session_start();
 					</li>
 				</ul>
 			</nav>
-			<div id="nom">
-				<h1>ECEbay</h1>
-			</div>
-			<div id="connexion">
-				<a href="#" title="Compte" id="connex"><img src="http://localhost/ECEbay/Images/login.jpg"></a>
-			</div>
 		</header>
 
-		<div id="corps">
 			
-		
-				<h2>Connexion à votre compte Vendeur</h2>
-<form action="http://localhost/ECEbay/Connexion/VendeurB.php" method="post">
-<table>
-<tr>
-<td>Mail:</td>
-<td><input type="text" name="mail" size="20"></td>
-</tr>
-<tr>
-<td>Mot de Passe:</td>
-<td><input type="password" name="password" size="20"></td>
-</tr>
-<tr>
-<td colspan="2" align="center">
- <input type="submit" name="button" value="Connexion"></td>
-</tr>
-</table>
-</form>
+			 <h2>Liste des equipements sportifs :</h2>
+		<div id="corps">
+			<?php
+				for($i = 1; $i <= $NbArticles; $i++)
+				{
+			?>
+			<article><?php echo 'Article '.$i;
+			//echo $ID['1'].'</br>';
+			echo "</br> Nom: ".$Nom[$i].'</br>';
+			echo "Prix: ".$Prix[$i].'</br>';
+			//echo $Description['1'].'</br>';
+			echo "Stock: ".$Stock[$i].'</br>';
+			echo "Nombre d'unités vendues: " .$NB_Ventes[$i].'</br>'.'</br>';
+			
+			?></article>
+			<?php
+				}
+			?>
+		</div>
 
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Compte</title>
+    </head>
+    <body>
+    </body>
+</html>
+
+<?php
+if($_SESSION['ID'] ==''){echo "Pas de compte connecté";}
+?>
 		</div>
 		
 		<footer>

@@ -1,9 +1,30 @@
 <?php
 session_start();
+
+
+$database = "ecebay";
+
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+$j=0;
+
+
+if($db_found) 
+{
+		$ID=$_SESSION['ID'];
+
+		$result = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Vendeur like '$ID'");
+		while($data = mysqli_fetch_assoc($result)) 
+		{
+		$j=$j+1;
+		$Nom[$j]=$data['Nom'];
+		$Prix[$j]=$data['Prix'];
+		$Stock[$j]=$data['Stock'];
+		}
+$NbArticles=$j;
+}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +61,6 @@ session_start();
 		</header>
 
 		<div id="corps">
-			
 			<?php
 			$database = "ecebay";
 
@@ -50,21 +70,19 @@ session_start();
 			if($_SESSION['ID'] !='')
 			{$ID=$_SESSION['ID'];
 
-			$result = mysqli_query($db_handle,"SELECT * FROM acheteur WHERE ID_User LIKE '$ID'");
+			$result = mysqli_query($db_handle,"SELECT * FROM vendeur WHERE ID_Vendeur LIKE '$ID'");
 			$row = mysqli_fetch_array($result);
 
-			Echo "ID user: " .$row['ID_User'].'</br>';
-			Echo "Nom: " .$row['Nom'].'</br>';
-			Echo "Prenom: " .$row['Prenom'].'</br>';
-			Echo "Adresse: " .$row['Adresse'].'</br>';
+			Echo "ID vendeur: " .$row['ID_Vendeur'].'</br>';
+			Echo "Pseudo: " .$row['Pseudo'].'</br>';
 			Echo "Mail: " .$row['Mail'].'</br>';
-			Echo "Solde: " .$row['Solde'].'</br>';
-			Echo "Numero de carte: " .$row['NCarte'].'</br>';
-			Echo "Date d'expiration de la carte: " .$row['Expiration'].'</br>';
+			Echo "Solde: " .$row['Solde'].'</br>'.'</br>';
 			}
 			mysqli_close($db_handle);
+			?>
+		</div>
 
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -73,6 +91,10 @@ session_start();
         <title>Compte</title>
     </head>
     <body>
+    <p>
+        <a href="http://localhost/ECEbay/ListeVendeur.php">Liste des produits en vente</a><br />
+
+    </p>
     <p>
         <a href="http://localhost/ECEbay/Connexion.php">Connexion</a><br />
 

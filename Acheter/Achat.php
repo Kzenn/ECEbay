@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +12,7 @@ session_start();
 		<title>ECEbay</title>
 	</head>
 	<body>
+
 		<header>
 			<nav>
 				<ul>
@@ -39,23 +42,31 @@ session_start();
 		<div id="corps">
 			
 		
-				<h2>Connexion à votre compte Vendeur</h2>
-<form action="http://localhost/ECEbay/Connexion/VendeurB.php" method="post">
-<table>
-<tr>
-<td>Mail:</td>
-<td><input type="text" name="mail" size="20"></td>
-</tr>
-<tr>
-<td>Mot de Passe:</td>
-<td><input type="password" name="password" size="20"></td>
-</tr>
-<tr>
-<td colspan="2" align="center">
- <input type="submit" name="button" value="Connexion"></td>
-</tr>
-</table>
-</form>
+			<form action="http://localhost/ECEbay/Acheter/AchatRedirect.php" method="post">
+			<table>
+					<tr>
+						<td>A payer: <?php echo $_SESSION['PrixPanier'];  ?> </td>
+					</tr>
+					<tr>
+						<td>Numero de carte:</td>
+						<td><input type="int" name="Ncarte"></td>
+					</tr>
+					<tr>
+						<td>PIN:</td>
+						<td><input type="int" name="PIN"></td>
+					</tr>	
+					<tr>
+						<td>Date d'expiration:</td>
+						<td><input type="date" name="DateExpiration"></td>
+					</tr>
+
+
+					<tr>
+						<td colspan="2" align="center"><input type="submit" n="Valider"></td>
+					</tr>
+			</table>
+		</form>
+		</p>
 
 		</div>
 		
@@ -72,4 +83,5 @@ session_start();
 		</footer>
 	</body>
 </html>
+
 

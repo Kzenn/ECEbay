@@ -39,23 +39,7 @@ session_start();
 		<div id="corps">
 			
 		
-				<h2>Connexion à votre compte Vendeur</h2>
-<form action="http://localhost/ECEbay/Connexion/VendeurB.php" method="post">
-<table>
-<tr>
-<td>Mail:</td>
-<td><input type="text" name="mail" size="20"></td>
-</tr>
-<tr>
-<td>Mot de Passe:</td>
-<td><input type="password" name="password" size="20"></td>
-</tr>
-<tr>
-<td colspan="2" align="center">
- <input type="submit" name="button" value="Connexion"></td>
-</tr>
-</table>
-</form>
+
 
 		</div>
 		
@@ -72,4 +56,3 @@ session_start();
 		</footer>
 	</body>
 </html>
-

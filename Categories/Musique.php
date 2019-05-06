@@ -20,12 +20,12 @@ if($db_found)
 		{
 			$j=$j+1;
 
-			$ID[$j] = $data2['ID_Produit'];
+			$IDBis[$j] = $data2['ID_Produit'];
 			$Nom[$j] = $data2['Nom'];
 			$Auteur[$j] = $data['Auteur'];
 			$Prix[$j] = $data2['Prix'].'</br>';
 
-			//$Description[$j] = $data2['Description'];
+			$Description[$j] = $data2['Description'];
 			$Stock[$j] = $data2['Stock'];
 			
 			$Date_Parution[$j] = $data['Date_Parution'];
@@ -41,6 +41,8 @@ if($db_found)
 else{echo "ma base n'existe pas";}
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -62,6 +64,8 @@ else{echo "ma base n'existe pas";}
 							<li><a href="../Compte.php" title="Accéder à votre compte">Votre compte</a></li>
 							<li><a href="../Panier.php" title="Accéder au panier">Panier</a></li>
 							<li><a href="../Admin.php" title="Espace réservé aux admins">Admin</a></li>
+							<li><a href="http://localhost/ECEbay/Connexion.php" title="Connexion">Connexion</a></li>
+							<li><a href="http://localhost/ECEbay/Deconnexion.php" title="Deconnexion">Deconnexion</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -81,20 +85,25 @@ else{echo "ma base n'existe pas";}
 			<?php
 				for($i = 1; $i <= $NbArticles; $i++)
 				{
-			?>
-			<article><?php echo 'Article '.$i;
-			//echo $ID['1'].'</br>';
-			echo "</br> Nom: ".$Nom[$i].'</br>';
-			echo "Prix: ".$Prix[$i].'</br>';
-			//echo $Description['1'].'</br>';
-			echo "Stock: ".$Stock[$i].'</br>';
+					?>
+					<article><?php echo 'Article '.$i;
+					//echo $ID['1'].'</br>';
+					echo "</br> Nom: ".$Nom[$i].'</br>';
+					echo "Prix: ".$Prix[$i].'</br>';
+					//echo $Description['1'].'</br>';
+					echo "Stock: ".$Stock[$i].'</br>';
 
-			echo "Auteur: ".$Auteur[$i].'</br>';
-			echo "Date_Parution ".$Date_Parution[$i].'</br>';
-			echo "Genre: ".$Genre[$i].'</br>';
+					echo "Auteur: ".$Auteur[$i].'</br>';
+					echo "Date_Parution ".$Date_Parution[$i].'</br>';
+					echo "Genre: ".$Genre[$i].'</br>';
+
 			
-			?></article>
-			<?php
+					?>
+						<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
+				<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
+						</form>
+					</article>
+				<?php
 				}
 			?>
 		</div>

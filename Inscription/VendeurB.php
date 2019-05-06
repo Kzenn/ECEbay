@@ -14,6 +14,7 @@ $db_found = mysqli_select_db($db_handle, $database);
 $ID_Vendeur = 0;
 $Pseudo = isset($_POST["pseudo"]) ? $_POST["pseudo"]:"";
 $Mail = isset($_POST["mail"]) ? $_POST["mail"]:"";
+$MDP = isset($_POST["MDP"]) ? $_POST["MDP"]:"";
 $P_Adresse = isset($_POST["padresse"]) ? $_POST["padresse"]:"";
 $F_Adresse = isset($_POST["fadresse"]) ? $_POST["fadresse"]:"";
 $Solde = 0;
@@ -38,15 +39,15 @@ if($db_found) {
 if($Verif==0)
 {
 		$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=UTF8", $db_login, $db_pass);
-		$sql = "INSERT INTO vendeur (ID_Vendeur, Pseudo, Mail, Photo_Adresse, Fond_Adresse, Solde) VALUES(";
-		$sql .= "'$ID_Vendeur', '$Pseudo', '$Mail', '$P_Adresse', '$F_Adresse', '$Solde' )";
+		$sql = "INSERT INTO vendeur (ID_Vendeur, Pseudo, Mail, Photo_Adresse, Fond_Adresse, Solde, MDP) VALUES(";
+		$sql .= "'$ID_Vendeur', '$Pseudo', '$Mail', '$P_Adresse', '$F_Adresse', '$Solde', '$MDP' )";
 	
 		$bdd->query($sql);
 }
 else if ($Verif==1)
 {echo "Mail déjà existant. <br> <br>";}
 
-header('Location: http://localhost/ECEbay/Inscription/Vendeur.php');
+header('Location: http://localhost/ECEbay/Categories.php');
 
 mysqli_close($db_handle);
 ?>
