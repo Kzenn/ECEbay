@@ -15,7 +15,7 @@ if($db_found)
 	{
 		$ID=$data['ID_Produit'];
 		
-		$resultBIS = mysqli_query($db_handle, "SELECT * FROM produit INNER JOIN image ON produit.ID_Produit = image.ID_P¨roduit Where ID_Produit like '$ID'");
+		$resultBIS = mysqli_query($db_handle, "SELECT * FROM produit INNER JOIN image ON produit.ID_Produit = image.ID_Produit Where ID_Produit like '$ID'");
 		while($data2 = mysqli_fetch_assoc($resultBIS)) 
 		{
 			$j=$j+1;
