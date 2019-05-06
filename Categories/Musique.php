@@ -15,7 +15,7 @@ if($db_found)
 	{
 		$ID=$data['ID_Produit'];
 		
-		$resultBIS = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Produit like '$ID'");
+		$resultBIS = mysqli_query($db_handle, "SELECT * FROM produit INNER JOIN image ON produit.ID_Produit = image.ID_P¨roduit Where ID_Produit like '$ID'");
 		while($data2 = mysqli_fetch_assoc($resultBIS)) 
 		{
 			$j=$j+1;
@@ -30,6 +30,7 @@ if($db_found)
 			
 			$Date_Parution[$j] = $data['Date_Parution'];
 			$Genre[$j] = $data['Genre'];
+			$Image[$j] = $data2['Adresse'];
 
 			//$Sport[$j] = $data['Sport'];
 
@@ -99,6 +100,7 @@ else{echo "ma base n'existe pas";}
 
 			
 					?>
+					<img src="<?php echo $Image[$i]?>" alt="image produit">
 						<form action="http://localhost/ECEbay/AjoutPanier.php" method="post">
 				<td colspan="2" align="right"><input type="submit" value="Ajouter au panier" /><input type="hidden" name="ID_Produit" value='<?php echo $IDBis[$i]?>' /></td>
 						</form>
