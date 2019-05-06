@@ -15,11 +15,6 @@ $db_found = mysqli_select_db($db_handle, $database);
 
 
 $ID_User = $_SESSION['ID'];
-$ID_Produit1 = 11;
-$ID_Produit2 = 21;
-$ID_Produit3 = 31;
-$ID_Produit4 = 41;
-$ID_Produit5 = 51;
 
 
 $Verif=0;

@@ -42,8 +42,10 @@ if($db_found)
 
 				$j=$j+1;
 				$Produit[$j]['ID']=$ID_Produit1;
-				$Produit[$j]['Nom']= $dataProduit1['Nom'];
+				$Produit[$j]['Nom']= $dataProduit1['Nom']; 
 				$Produit[$j]['Prix']= $dataProduit1['Prix'];
+				$Produit[$j]['Stock']= $dataProduit1['Stock'];
+				if($Produit[$j]['Stock'] != 0 )
 				$PrixTotal = $PrixTotal + $Produit[$j]['Prix'];
 				
 			}//end while Produit 1
@@ -51,11 +53,12 @@ if($db_found)
 			$resultProduit2 = mysqli_query($db_handle, "SELECT * FROM produit Where ID_Produit like '$ID_Produit2'");
 			while($dataProduit2 = mysqli_fetch_assoc($resultProduit2)) 
 			{
-
 				$j=$j+1;
 				$Produit[$j]['ID']=$ID_Produit2;
 				$Produit[$j]['Nom']= $dataProduit2['Nom'];
 				$Produit[$j]['Prix']= $dataProduit2['Prix'];
+				$Produit[$j]['Stock']= $dataProduit2['Stock'];
+				if($Produit[$j]['Stock'] != 0 )
 				$PrixTotal = $PrixTotal + $Produit[$j]['Prix'];
 				
 			}//end while Produit 2
@@ -68,6 +71,8 @@ if($db_found)
 				$Produit[$j]['ID']=$ID_Produit3;
 				$Produit[$j]['Nom']= $dataProduit3['Nom'];
 				$Produit[$j]['Prix']= $dataProduit3['Prix'];
+				$Produit[$j]['Stock']= $dataProduit3['Stock'];
+				if($Produit[$j]['Stock'] != 0 )
 				$PrixTotal = $PrixTotal + $Produit[$j]['Prix'];
 				
 			}//end while Produit 1
@@ -80,6 +85,8 @@ if($db_found)
 				$Produit[$j]['ID']=$ID_Produit4;
 				$Produit[$j]['Nom']= $dataProduit4['Nom'];
 				$Produit[$j]['Prix']= $dataProduit4['Prix'];
+				$Produit[$j]['Stock']= $dataProduit4['Stock'];
+				if($Produit[$j]['Stock'] != 0 )
 				$PrixTotal = $PrixTotal + $Produit[$j]['Prix'];
 				
 			}//end while Produit 1
@@ -92,6 +99,8 @@ if($db_found)
 				$Produit[$j]['ID']=$ID_Produit5;
 				$Produit[$j]['Nom']= $dataProduit5['Nom'];
 				$Produit[$j]['Prix']= $dataProduit5['Prix'];
+				$Produit[$j]['Stock']= $dataProduit5['Stock'];
+				if($Produit[$j]['Stock'] != 0 )
 				$PrixTotal = $PrixTotal + $Produit[$j]['Prix'];
 				
 			}//end while Produit 1
@@ -155,7 +164,8 @@ else{echo "ma base n'existe pas";}
 								//echo $ID['1'].'</br>';
 								echo "</br> ID: ".$Produit[$i]['ID'].'</br>';
 								echo "Nom: ".$Produit[$i]['Nom'].'</br>';
-								echo "Prix: ".$Produit[$i]['Prix'].'</br> </br> ';
+								echo "Prix: ".$Produit[$i]['Prix'].'</br>';
+								echo "Stock: ".$Produit[$i]['Stock'].'</br> </br> ';
 
 								?>
 						</article>
